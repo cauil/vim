@@ -1,0 +1,43 @@
+snippet html5 "a simple html5 tag" b
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="main.css"/>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
+endsnippet
+
+snippet html-mobile "html template for mobile" b
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
+    <title></title>
+    <link type="text/css" href="main.css" rel="stylesheet">
+    <script type="type/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
+endsnippet
+
+snippet div "a div tag"
+<${1:div}>
+</${1/(\w+).*/$1/}>
+endsnippet
+
+snippet canvas "canvas basic"
+var canvas = document.getElementById("canvas");
+var context = canvas.getContext("2d");
+canvas.width = WINDOW_WIDTH;
+canvas.height = WINDOW_HEIGHT;
+endsnippet
