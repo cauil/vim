@@ -14,7 +14,13 @@
     $ vim +BundleInstall +qall
     $ ./install.sh
 
-3.Build [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#installation).
+3.install [homebrew](http://brew.sh/)
+
+note: install [homebrew](http://brew.sh/), maybe some problems, look at [here](https://segmentfault.com/a/1190000003817086)
+
+brew install cmake
+
+4.Build [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#installation).
 
 ### Manage Plugin
 
@@ -45,7 +51,12 @@ in vim command model
 
 `chsh -s /bin/zsh`
 
-note: install [homebrew](http://brew.sh/), maybe some problems, look at [here](https://segmentfault.com/a/1190000003817086)
+`vim ~/.myzshrc`
+
+add:
+
+`export CLICOLOR=1`
+`export LSCOLORS=dxfxcxdxbxegedabagacad`
 
 ### iterm use
 
