@@ -46,3 +46,20 @@ in vim command model
 `chsh -s /bin/zsh`
 
 note: install [homebrew](http://brew.sh/), maybe some problems, look at [here](https://segmentfault.com/a/1190000003817086)
+
+### iterm use
+
+* ⌃ + u：清空当前行
+* ⌃ + a：移动到行首
+* ⌃ + e：移动到行尾
+* ⌃ + f：向前移动
+* ⌃ + b：向后移动
+* ⌃ + p：上一条命令
+* ⌃ + n：下一条命令
+* ⌃ + r：搜索历史命令
+* ⌃ + y：召回最近用命令删除的文字
+* ⌃ + h：删除光标之前的字符
+* ⌃ + d：删除光标所指的字符
+* ⌃ + w：删除光标之前的单词
+* ⌃ + k：删除从光标到行尾的内容
+* ⌃ + t：交换光标和之前的字符
