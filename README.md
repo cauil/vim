@@ -16,8 +16,8 @@
     $ cd ~/.vim
     $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
     $ vim +BundleInstall +qall
-    $ npm install -g eslint_d instant-markdown-d
-    $ cp vimrc ~/.vimrc
+    $ npm install -g eslint jshint instant-markdown-d
+    $ cp vimrc ~/.vimrc && cp tern-project ~/.tern-project
 
 3.install [homebrew](http://brew.sh/)
 
@@ -26,6 +26,11 @@ note: install [homebrew](http://brew.sh/), maybe some problems, look at [here](h
     $ brew install cmake
 
 4.Build [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#installation).
+
+note: 
+
+    $ cd ~/.vim/bundle/YouCompleteMe
+    $ ./install.py --tern-completer --clang-completer
 
 ### Manage Plugin
 

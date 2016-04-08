@@ -315,10 +315,10 @@ let g:syntastic_warning_symbol='>'
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " 设置js 和 html的检查项目，jslint jshint需要自己安装, 或者使用eslint
-"let g:syntastic_javascript_checkers = ['jsl', 'jshint']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = ['eslint_d']
-let g:syntastic_html_checkers=['tidy', 'eshint']
+let g:syntastic_javascript_checkers = ['jsl', 'jshint']
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_eslint_exec = ['eslint_d']
+let g:syntastic_html_checkers=['tidy', 'jshint']
 " 设置一进入不打开提示窗口
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
@@ -343,7 +343,7 @@ nnoremap <Leader>s :call ToggleErrors()<cr>
 "map <F7> :NERDTreeToggle<CR>
 
 "autocmd VimEnter * if !argc() | NERDTree | endif
-autocmd VimEnter * wincmd p
+"autocmd VimEnter * wincmd p
 let g:nerdtree_tabs_open_on_gui_starup=0
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
