@@ -203,7 +203,7 @@ Bundle 'terryma/vim-expand-region'
 Bundle 'elzr/vim-json'
 Bundle 'groenewege/vim-less'
 Bundle 'pangloss/vim-javascript'
-Bundle 'briancollins/vim-jst'
+"Bundle 'briancollins/vim-jst'
 Bundle 'mxw/vim-jsx'
 "Bundle 'kchmck/vim-coffee-script'
 
@@ -314,9 +314,11 @@ let g:syntastic_error_symbol='>>'
 let g:syntastic_warning_symbol='>'
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-" 设置js 和 html的检查项目，jslint jshint需要自己安装
-let g:syntastic_javascript_checkers = ['jsl', 'jshint']
-let g:syntastic_html_checkers=['tidy', 'jshint']
+" 设置js 和 html的检查项目，jslint jshint需要自己安装, 或者使用eslint
+"let g:syntastic_javascript_checkers = ['jsl', 'jshint']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = ['eslint_d']
+let g:syntastic_html_checkers=['tidy', 'eshint']
 " 设置一进入不打开提示窗口
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0

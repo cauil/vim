@@ -1,5 +1,9 @@
 # My vim and sh setting for daily use
 
+## 0. Prerequire
+
++    [Node](https://nodejs.org/en/)
+
 ## 1. VIM
 ### Install
 
@@ -12,13 +16,13 @@
     $ cd ~/.vim
     $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
     $ vim +BundleInstall +qall
-    $ ./install.sh
+    $ npm install -g eslint_d instant-markdown-d
 
 3.install [homebrew](http://brew.sh/)
 
 note: install [homebrew](http://brew.sh/), maybe some problems, look at [here](https://segmentfault.com/a/1190000003817086)
 
-brew install cmake
+    $ brew install cmake
 
 4.Build [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#installation).
 
@@ -49,13 +53,14 @@ in vim command model
 
 3. change sh
 
-`chsh -s /bin/zsh`
+    $ chsh -s /bin/zsh
 
-`vim ~/.myzshrc`
+    $ vim ~/.myzshrc
 
 add:
 
 `export CLICOLOR=1`
+
 `export LSCOLORS=dxfxcxdxbxegedabagacad`
 
 ### iterm use
