@@ -336,6 +336,25 @@ endfunction
 " 设置打开提示窗口快捷键
 nnoremap <Leader>s :call ToggleErrors()<cr>
 
+""""""""""""""""""""""""""CtrlP插件
+let g:ctrlp_map = "<c-p>"
+let g:ctrlp_cmd = "CtrlP"
+
+let g:ctrlp_working_path_mode = 'ra'
+
+" 设置是否按照文件名来查找 0: 否 1: 是
+let g:ctrlp_by_filename = 1
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+let g:ctrlp_user_command = 'find %s -type f'
+
 """"""""""""""""""""""""""NERD_Commenter插件
 
 """"""""""""""""""""""""""NERDtree插件
@@ -343,7 +362,7 @@ nnoremap <Leader>s :call ToggleErrors()<cr>
 "map <F7> :NERDTreeToggle<CR>
 
 "autocmd VimEnter * if !argc() | NERDTree | endif
-"autocmd VimEnter * wincmd p
+autocmd VimEnter * wincmd p
 let g:nerdtree_tabs_open_on_gui_starup=0
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
