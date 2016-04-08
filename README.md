@@ -17,6 +17,7 @@
     $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
     $ vim +BundleInstall +qall
     $ npm install -g eslint_d instant-markdown-d
+    $ cp vimrc ~/.vimrc
 
 3.install [homebrew](http://brew.sh/)
 
