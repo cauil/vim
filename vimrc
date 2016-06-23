@@ -40,7 +40,7 @@ endif
 set tabpagemax=15   " Only show 15 tabs
 set showmode " Display the current mode
 
-set cursorline  " Highlight current line
+"set cursorline  " Highlight current line
 set cursorcolumn
 
 highlight clear SignColumn  " SignColumn should match background
@@ -81,6 +81,7 @@ set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic white
 
 """""""""""""""""""""Formatting
 set nowrap  " Do not wrap long lines
+set linebreak
 set autoindent  " Indent at the same level of the previous line
 set shiftwidth=4 " Use indents of 4 spaces
 set expandtab   " Tabs are spaces, not tabs
@@ -90,6 +91,7 @@ set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set splitright  " Puts new vsplit windows to the right of the current
 set pastetoggle=<F12>   " pastetoggle (sane indentation on pastes)
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
+autocmd BufNewFile,BufRead *.ftl set filetype=html
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
 " preceding line best in a plugin but here for now.
 
@@ -168,6 +170,7 @@ Bundle 'gmarik/vundle'
 " General
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'tomasr/molokai'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
@@ -175,7 +178,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'bling/vim-airline'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'jistr/vim-nerdtree-tabs'
+"Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'taglist.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -205,6 +208,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'pangloss/vim-javascript'
 "Bundle 'briancollins/vim-jst'
 Bundle 'mxw/vim-jsx'
+Bundle 'isRuslan/vim-es6'
 "Bundle 'kchmck/vim-coffee-script'
 
 " Html
@@ -300,6 +304,10 @@ set background=dark
 colorscheme solarized
 "colorscheme molokai
 "colorscheme desert
+"
+""""""""""""""""""""""""""""color molokai
+let g:molokai_original=1
+let g:rehash256=1
 
 """"""""""""""""""""""""""""pydiction插件
 "设置查找所有的字典路径
@@ -343,10 +351,10 @@ let g:ctrlp_cmd = "CtrlP"
 let g:ctrlp_working_path_mode = 'ra'
 
 " 设置是否按照文件名来查找 0: 否 1: 是
-let g:ctrlp_by_filename = 1
+let g:ctrlp_by_filename = 0
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll)$',
