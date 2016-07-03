@@ -15,9 +15,9 @@
 
     $ cd ~/.vim
     $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    $ ln -s vimrc ~/.vimrc && ln -s tern-project ~/.tern-project
     $ vim +BundleInstall +qall
     $ npm install -g eslint jshint instant-markdown-d
-    $ ln -s vimrc ~/.vimrc && ln -s tern-project ~/.tern-project
 
 3.install [homebrew](http://brew.sh/)
 

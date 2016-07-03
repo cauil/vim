@@ -111,8 +111,10 @@ set magic
 "imap jj <Esc><Right>
 
 "配置<Leader>键
-let mapleader=";"
-let g:mapleader=";"
+let mapleader=","
+let g:mapleader=","
+"重复倒退搜索f
+noremap \ ,
 
 " 全屏开/关快捷键
 map <silent> <F11> :call ToggleFullscreen()<CR>
@@ -242,10 +244,10 @@ let g:tagbar_autofocus = 1
 """""""""""""""""""""""""""""easyMotion插件
 let g:EasyMotion_smartcase = 1
 " let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
-map ;;h <Plug>(easymotion-linebackward)
-map ;;j <Plug>(easymotion-j)
-map ;;k <Plug>(easymotion-k)
-map ;;l <Plug>(easymotion-lineforward)
+map <leader><leader>h <Plug>(easymotion-linebackward)
+map <leader><leader>j <Plug>(easymotion-j)
+map <leader><leader>k <Plug>(easymotion-k)
+map <leader><leader>l <Plug>(easymotion-lineforward)
 
 """"""""""""""""""""""""""""YouCompleteMe插件
 "自动补全
