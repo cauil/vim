@@ -305,9 +305,10 @@ let g:solarized_termtrans=1
 let g:solarized_contrast="normal"
 let g:solarized_visibility="normal"
 set background=dark
-colorscheme solarized
+"colorscheme solarized
 "colorscheme molokai
-"colorscheme desert
+colorscheme desert
+"colorscheme github
 "
 """"""""""""""""""""""""""""color molokai
 let g:molokai_original=1
@@ -327,10 +328,10 @@ let g:syntastic_warning_symbol='>'
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " 设置js 和 html的检查项目，jslint jshint需要自己安装, 或者使用eslint
-let g:syntastic_javascript_checkers = ['jsl', 'jshint']
-"let g:syntastic_javascript_checkers = ['eslint']
-"let g:syntastic_javascript_eslint_exec = ['eslint_d']
-let g:syntastic_html_checkers=['tidy', 'jshint']
+"let g:syntastic_javascript_checkers = ['jsl', 'jshint']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint'
+let g:syntastic_html_checkers=['tidy', 'eslint']
 " 设置一进入不打开提示窗口
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
