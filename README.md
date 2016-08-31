@@ -85,3 +85,47 @@ add:
 * ⌃ + w：删除光标之前的单词
 * ⌃ + k：删除从光标到行尾的内容
 * ⌃ + t：交换光标和之前的字符
+
+## 3. pip + virtual
+
+### pip
+
+1. install
+
+[download get-pip.py](https://pip.pypa.io/en/stable/installing/), then run the following:
+
+    python get-pip.py
+
+2. How to Use
+
+please look [this document](https://pip.pypa.io/en/stable)
+
+### virtualenvwrapper
+
+1. install
+
+    pip install virtualenvwrapper
+
+in OSX 10.11 El Capitan there is a error when install(becasue the dep package six), so u can:
+
+    sudo pip install virtualenvwrapper --ignore-installed six
+
+2. config
+
+add this to .profile or .bashrc, because i use zsh, os i just put it in .myzshrc:
+
+    export WORKON_HOME=$HOME/.virtualenvs
+    export PROJECT_HOME=$HOME/Devel
+    source /usr/local/bin/virtualenvwrapper.sh
+
+3. manage 
+
+please look [this document](https://virtualenvwrapper.readthedocs.io/en/latest/command_ref.html#managing-environments)
+
+    workon, mkvirtualenv, deactive, rmvirtualenv
+
+4. use different python verison
+
+when mkvirtualenv, just:
+
+    mkvirtualenv -p /usr/local/bin/python3 env1

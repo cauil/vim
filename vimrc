@@ -328,15 +328,21 @@ let g:syntastic_warning_symbol='>'
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " 设置js 和 html的检查项目，jslint jshint需要自己安装, 或者使用eslint
-"let g:syntastic_javascript_checkers = ['jsl', 'jshint']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint'
+let g:syntastic_javascript_checkers = ['jsl', 'jshint']
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_eslint_exec = 'eslint_d'
+"let g:syntastic_javascript_eslint_exec = 'eslint'
 let g:syntastic_html_checkers=['tidy', 'eslint']
 " 设置一进入不打开提示窗口
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 "设置提示窗口高度
 let g:syntastic_loc_list_height = 5
+"设置检查模式
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "active_filetypes": [],
+    \ "passive_filetypes": ["js", 'html'] }
 
 function! ToggleErrors()
     let old_last_winnr = winnr('$')
@@ -348,6 +354,7 @@ function! ToggleErrors()
 endfunction
 " 设置打开提示窗口快捷键
 nnoremap <Leader>s :call ToggleErrors()<cr>
+"nnoremap <Leader>sc :SyntasticCheck<cr>
 
 """"""""""""""""""""""""""CtrlP插件
 let g:ctrlp_map = "<c-p>"
