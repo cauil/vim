@@ -90,19 +90,19 @@ add:
 
 ### pip
 
-1. install
+1.install
 
 [download get-pip.py](https://pip.pypa.io/en/stable/installing/), then run the following:
 
     python get-pip.py
 
-2. How to Use
+2.How to Use
 
 please look [this document](https://pip.pypa.io/en/stable)
 
 ### virtualenvwrapper
 
-1. install
+1.install
 
     pip install virtualenvwrapper
 
@@ -110,7 +110,7 @@ in OSX 10.11 El Capitan there is a error when install(becasue the dep package si
 
     sudo pip install virtualenvwrapper --ignore-installed six
 
-2. config
+2.config
 
 add this to .profile or .bashrc, because i use zsh, os i just put it in .myzshrc:
 
@@ -118,13 +118,13 @@ add this to .profile or .bashrc, because i use zsh, os i just put it in .myzshrc
     export PROJECT_HOME=$HOME/Devel
     source /usr/local/bin/virtualenvwrapper.sh
 
-3. manage 
+3.manage 
 
 please look [this document](https://virtualenvwrapper.readthedocs.io/en/latest/command_ref.html#managing-environments)
 
     workon, mkvirtualenv, deactive, rmvirtualenv
 
-4. use different python verison
+4.use different python verison
 
 when mkvirtualenv, just:
 
