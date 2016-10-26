@@ -25,7 +25,7 @@ set foldlevel=99
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 set history=1000" Store a ton of history (default is 20)
 "set spell   " Spell checking on
-"set hidden  " Allow buffer switching without saving
+set hidden  " Allow buffer switching without saving
 
 "set register can use system register
 if has('clipboard')
@@ -191,6 +191,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'Sirver/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'terryma/vim-expand-region'
+Bundle 'tmhedberg/matchit'
 "Bundle 'tpope/vim-fugitive'
 "Bundle 'winmanager'
 "Bundle 'bufexplorer.zip'
@@ -305,9 +306,9 @@ let g:solarized_termtrans=1
 let g:solarized_contrast="normal"
 let g:solarized_visibility="normal"
 set background=dark
-colorscheme solarized
+"colorscheme solarized
 "colorscheme molokai
-"colorscheme desert
+colorscheme desert
 "
 """"""""""""""""""""""""""""color molokai
 let g:molokai_original=1
@@ -378,6 +379,8 @@ autocmd VimEnter * wincmd p
 let g:nerdtree_tabs_open_on_gui_starup=0
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
+" 是否显示隐藏文件
+let NERDTreeShowHidden=1
 
 "close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
