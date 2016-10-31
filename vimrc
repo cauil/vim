@@ -196,10 +196,10 @@ Bundle 'terryma/vim-expand-region'
 "Bundle 'bufexplorer.zip'
 
 " python
-"Bundle 'klen/python-mode'
-"Bundle 'yssource/python.vim'
-"Bundle 'python_match.vim'
-"Bundle 'pythoncomplete'
+Bundle 'klen/python-mode'
+Bundle 'yssource/python.vim'
+Bundle 'python_match.vim'
+Bundle 'pythoncomplete'
 
 " Scala
 "Bundle 'derekwyatt/vim-scala'
