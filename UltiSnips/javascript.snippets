@@ -4,3 +4,40 @@ var context = canvas.getContext("2d");
 canvas.width = WINDOW_WIDTH;
 canvas.height = WINDOW_HEIGHT;
 endsnippet
+
+snippet rncon
+	import React, {Component} from 'react';
+	import {
+		StyleSheet,
+		View,
+		Text,
+	} from 'react-native';
+
+	export default class ${1:ClassName} extends Component {
+		constructor(props) {
+			super(props);
+			this.state = {
+			};
+		}
+		render() {
+			return (
+			<View>
+				$(0)
+			</View>
+			);
+		}
+	}
+
+	const styles = StyleSheet.create({
+	  container: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: '#F5FCFF',
+	  },
+	});
+	function ${1:function_name}(${2})${3}
+		{
+			${0}
+		}
+endsnippet
