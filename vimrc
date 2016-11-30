@@ -192,6 +192,8 @@ Bundle 'Sirver/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'terryma/vim-expand-region'
 Bundle 'tmhedberg/matchit'
+Bundle 'mileszs/ack.vim'
+Bundle 'dyng/ctrlsf.vim'
 "Bundle 'tpope/vim-fugitive'
 "Bundle 'winmanager'
 "Bundle 'bufexplorer.zip'
@@ -214,6 +216,7 @@ Bundle 'pangloss/vim-javascript'
 "Bundle 'briancollins/vim-jst'
 Bundle 'mxw/vim-jsx'
 Bundle 'isRuslan/vim-es6'
+Bundle 'posva/vim-vue'
 "Bundle 'kchmck/vim-coffee-script'
 
 " Html
@@ -329,8 +332,8 @@ let g:syntastic_warning_symbol='>'
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " 设置js 和 html的检查项目，jslint jshint需要自己安装, 或者使用eslint
-let g:syntastic_javascript_checkers = ['jsl', 'jshint']
-"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_checkers = ['jsl', 'jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 "let g:syntastic_javascript_eslint_exec = 'eslint_d'
 "let g:syntastic_javascript_eslint_exec = 'eslint'
 let g:syntastic_html_checkers=['tidy', 'eslint']
@@ -366,7 +369,9 @@ let g:ctrlp_working_path_mode = 'ra'
 " 设置是否按照文件名来查找 0: 否 1: 是
 let g:ctrlp_by_filename = 0
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+"set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/.tmp/*,*/.sass-cache/*,*/node_modules/*,*.keep,*.DS_Store,*/.git/*
+
 "let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
@@ -375,6 +380,46 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 let g:ctrlp_user_command = 'find %s -type f'
+
+""""""""""""""""""""""""""silver search插件
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+if executable('ag')
+    " use ag over ack
+    let g:ackprg = 'ag --nogroup --nocolor --column'
+    " Use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor
+
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+    " ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
+
+    " bind \ (backward slash) to grep shortcut
+    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+
+    nnoremap \ :Ag<SPACE>
+endif
+
+""""""""""""""""""""""""""Ctrlsf插件
+let g:ctrlsf_default_root = 'project'
+let g:ctrlsf_mapping = {
+    \ "next": "n",
+    \ "prev": "N",
+    \ }
+let g:ctrlsf_regex_pattern = 1
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+nmap     <C-F>l <Plug>CtrlSFQuickfixPrompt
+vmap     <C-F>l <Plug>CtrlSFQuickfixVwordPath
+vmap     <C-F>L <Plug>CtrlSFQuickfixVwordExec
 
 """"""""""""""""""""""""""NERD_Commenter插件
 
