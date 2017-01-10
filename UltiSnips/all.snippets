@@ -5,3 +5,30 @@ snippet zs "注释"
  * @return {${3:IMDR}} imdrMsg
  */
 endsnippet
+
+
+snippet vuejs "注释"
+import Vue from '../../lib/vue/vue2';
+
+import  mymodal from './modal.vue';
+Vue.component('mymodal', mymodal);
+
+const OBJ = {
+};
+
+const App = new Vue({
+    el: '#main-container',
+    data: {
+    },
+    computed: {
+    },
+    watch: {
+    },
+    created() {
+    },
+    methods: {
+    },
+    components: {
+    }
+});
+endsnippet
