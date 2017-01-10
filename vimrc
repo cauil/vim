@@ -92,6 +92,7 @@ set splitright  " Puts new vsplit windows to the right of the current
 set pastetoggle=<F12>   " pastetoggle (sane indentation on pastes)
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 autocmd BufNewFile,BufRead *.ftl set filetype=html
+autocmd BufNewFile,BufRead *.asm set filetype=masm
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
 " preceding line best in a plugin but here for now.
 
@@ -261,6 +262,7 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd FileType masm set omnifunc=masmcomplete#Complete
 
 "youcompleteme  默认tab  s-tab 和自动补全冲突
 "let g:ycm_key_list_select_completion=['<c-n>']
