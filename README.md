@@ -71,20 +71,20 @@ add:
 
 ### iterm use
 
-* ⌃ + u：清空当前行
-* ⌃ + a：移动到行首
-* ⌃ + e：移动到行尾
-* ⌃ + f：向前移动
-* ⌃ + b：向后移动
-* ⌃ + p：上一条命令
-* ⌃ + n：下一条命令
-* ⌃ + r：搜索历史命令
-* ⌃ + y：召回最近用命令删除的文字
-* ⌃ + h：删除光标之前的字符
-* ⌃ + d：删除光标所指的字符
-* ⌃ + w：删除光标之前的单词
-* ⌃ + k：删除从光标到行尾的内容
-* ⌃ + t：交换光标和之前的字符
+* ⌃ + u：clear current line
+* ⌃ + a：move to head of line
+* ⌃ + e：move to tail of line
+* ⌃ + f：move forward
+* ⌃ + b：move back
+* ⌃ + p：pre command
+* ⌃ + n：next command
+* ⌃ + r：search history commadn
+* ⌃ + y：recove the lastest delete word
+* ⌃ + h：delete the character before cursor
+* ⌃ + d：delete the character on cursor
+* ⌃ + w：delete the word before cursor
+* ⌃ + k：delete the content from cursor to tail of line
+* ⌃ + t：switch character between before and on the cursor
 
 ## 3. pip + virtual
 
