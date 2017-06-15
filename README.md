@@ -2,7 +2,22 @@
 
 ## 0. Prerequire
 
-+    [Node](https://nodejs.org/en/)
++   Nvm
+
+    Please use nvm to manage node. Don't use n.
+    
+    If u have install node before use nvm. Uninstall the global node and the packages.
+
+    ```
+    sudo rm -rf /usr/local/lib/node_modules
+    sudo rm /usr/local/bin/node
+    /local/bin && ls -l | grep "../lib/node_modules/" | awk '{print $9}'| xargs rm
+    ```
+
++   Node
+    
+
+
 
 ## 1. VIM
 ### Install

@@ -1,4 +1,4 @@
-"-----------------------
+"----------------------
 "  1.常规设置
 "-----------------------
 
@@ -92,8 +92,10 @@ set splitright  " Puts new vsplit windows to the right of the current
 set pastetoggle=<F12>   " pastetoggle (sane indentation on pastes)
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 autocmd BufNewFile,BufRead *.ftl set filetype=html
+autocmd BufNewFile,BufRead *.rkt,*rktl set filetype=racket
 autocmd BufNewFile,BufRead *.asm set filetype=masm
 autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
+au filetype racket set lisp
 " preceding line best in a plugin but here for now.
 
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
@@ -220,6 +222,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'mxw/vim-jsx'
 Bundle 'isRuslan/vim-es6'
 Bundle 'posva/vim-vue'
+"Bundle 'ternjs/tern_for_vim'
 "Bundle 'kchmck/vim-coffee-script'
 
 " Html
@@ -287,7 +290,7 @@ let g:ycm_seed_identifiers_with_syntax=1
 
 " 跳转到定义处, 分屏打开
 let g:ycm_goto_buffer_command = 'horizontal-split'
-" nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
 
