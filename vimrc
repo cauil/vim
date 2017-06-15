@@ -173,6 +173,8 @@ Bundle 'gmarik/vundle'
 " General
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'sickill/vim-monokai'
+Bundle 'dracula/vim'
 Bundle 'tomasr/molokai'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
@@ -200,7 +202,7 @@ Bundle 'dyng/ctrlsf.vim'
 "Bundle 'bufexplorer.zip'
 
 " python
-Bundle 'klen/python-mode'
+"Bundle 'klen/python-mode'
 Bundle 'yssource/python.vim'
 Bundle 'python_match.vim'
 Bundle 'pythoncomplete'
@@ -313,7 +315,9 @@ let g:solarized_visibility="normal"
 set background=dark
 "colorscheme solarized
 "colorscheme molokai
-colorscheme desert
+"colorscheme monokai
+colorscheme dracula
+"colorscheme desert
 "colorscheme github
 "
 """"""""""""""""""""""""""""color molokai
