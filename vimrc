@@ -176,6 +176,8 @@ Bundle 'gmarik/vundle'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'sickill/vim-monokai'
+Bundle 'w0ng/vim-hybrid'
+Bundle 'joshdick/onedark.vim'
 Bundle 'dracula/vim'
 Bundle 'tomasr/molokai'
 Bundle 'scrooloose/nerdtree'
@@ -274,9 +276,9 @@ autocmd FileType masm set omnifunc=masmcomplete#Complete
 
 "youcompleteme  默认tab  s-tab 和自动补全冲突
 "let g:ycm_key_list_select_completion=['<c-n>']
-let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_select_completion = ['<up>', '<C-j>']
 "let g:ycm_key_list_previous_completion=['<c-p>']
-let g:ycm_key_list_previous_completion = ['<Up>']
+let g:ycm_key_list_previous_completion = ['<down>', '<C-k>']
 let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
 let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
 let g:ycm_use_ultisnips_completer = 1 "提示UltiSnips
@@ -284,12 +286,14 @@ let g:ycm_use_ultisnips_completer = 1 "提示UltiSnips
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_python_binary_path = 'python'
 
-" let g:ycm_autoclose_preview_window_after_completion = 1
-" let g:ycm_autoclose_preview_window_after_insertion = 1
+set completeopt-=preview "no preview window
+ "let g:ycm_autoclose_preview_window_after_completion = 1
+ "let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " 跳转到定义处, 分屏打开
-let g:ycm_goto_buffer_command = 'horizontal-split'
+"let g:ycm_goto_buffer_command = 'horizontal-split'
 nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
@@ -311,21 +315,29 @@ let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 let g:UltiSnipsEditSplit="vertical"
 
 """"""""""""""""""""""""""""color solarized
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+colorscheme onedark
+let g:airline_theme='onedark'
+let g:onedark_termcolors=16
 set background=dark
 "colorscheme solarized
 "colorscheme molokai
 "colorscheme monokai
-colorscheme dracula
+"colorscheme dracula
 "colorscheme desert
 "colorscheme github
 "
-""""""""""""""""""""""""""""color molokai
-let g:molokai_original=1
-let g:rehash256=1
 
 """"""""""""""""""""""""""""pydiction插件
 "设置查找所有的字典路径

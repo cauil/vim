@@ -7,7 +7,7 @@ snippet zs "注释"
 endsnippet
 
 
-snippet vuejs "注释"
+snippet vuejs "vue"
 import Vue from '../../lib/vue/vue2';
 
 import  mymodal from './modal.vue';
@@ -31,4 +31,25 @@ const App = new Vue({
     components: {
     }
 });
+endsnippet
+
+snippet ternconfig "tern配置"
+{
+	"ecmaVersion": 6,
+	"libs": [
+		"browser",
+		"jquery",
+        "ecma5",
+        "ecma6"
+    ],
+    "plugins": {
+        "node": {},
+		"node-express": {},
+		"es_modules": {},
+		"doc_comment": {
+			"fullDocs": true,
+			"strong": true
+		}
+    }
+}
 endsnippet
