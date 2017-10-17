@@ -94,7 +94,8 @@ autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 autocmd BufNewFile,BufRead *.ftl set filetype=html
 autocmd BufNewFile,BufRead *.rkt,*rktl set filetype=racket
 autocmd BufNewFile,BufRead *.asm set filetype=masm
-autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd BufNewFile,BufRead *.css,*.scss,*.less set filetype=css
+autocmd FileType haskell,puppet,ruby,yml,javascript,css,html setlocal expandtab shiftwidth=2 softtabstop=2
 au filetype racket set lisp
 " preceding line best in a plugin but here for now.
 
@@ -175,6 +176,10 @@ Bundle 'gmarik/vundle'
 " General
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'sickill/vim-monokai'
+Bundle 'w0ng/vim-hybrid'
+Bundle 'joshdick/onedark.vim'
+Bundle 'dracula/vim'
 Bundle 'tomasr/molokai'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
@@ -183,7 +188,8 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
-Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'taglist.vim'
@@ -270,9 +276,9 @@ autocmd FileType masm set omnifunc=masmcomplete#Complete
 
 "youcompleteme  默认tab  s-tab 和自动补全冲突
 "let g:ycm_key_list_select_completion=['<c-n>']
-let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_select_completion = ['<down>', '<C-k>']
 "let g:ycm_key_list_previous_completion=['<c-p>']
-let g:ycm_key_list_previous_completion = ['<Up>']
+let g:ycm_key_list_previous_completion = ['<up>', '<C-j>']
 let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
 let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
 let g:ycm_use_ultisnips_completer = 1 "提示UltiSnips
@@ -280,12 +286,14 @@ let g:ycm_use_ultisnips_completer = 1 "提示UltiSnips
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_python_binary_path = 'python'
 
-" let g:ycm_autoclose_preview_window_after_completion = 1
-" let g:ycm_autoclose_preview_window_after_insertion = 1
+set completeopt-=preview "no preview window
+ "let g:ycm_autoclose_preview_window_after_completion = 1
+ "let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " 跳转到定义处, 分屏打开
-let g:ycm_goto_buffer_command = 'horizontal-split'
+"let g:ycm_goto_buffer_command = 'horizontal-split'
 nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
@@ -307,19 +315,17 @@ let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 let g:UltiSnipsEditSplit="vertical"
 
 """"""""""""""""""""""""""""color solarized
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
+"colorscheme onedark
+"let g:airline_theme='onedark'
+"let g:onedark_termcolors=16
 set background=dark
 "colorscheme solarized
 "colorscheme molokai
+"colorscheme monokai
+"colorscheme dracula
 colorscheme desert
 "colorscheme github
 "
-""""""""""""""""""""""""""""color molokai
-let g:molokai_original=1
-let g:rehash256=1
 
 """"""""""""""""""""""""""""pydiction插件
 "设置查找所有的字典路径
@@ -457,16 +463,7 @@ let g:closetag_html_style=1
 
 
 """"""""""""""""""""""""""airline插件
-"if !exists('g:airline_symbols')
-    "let g:airline_symbols = {}
-"endif
-"let g:airline_left_sep = ''
-"let g:airline_left_alt_sep = ''
-"let g:airline_right_sep = ''
-"let g:airline_right_alt_sep = ''
-"let g:airline_symbols.branch = ''
-"let g:airline_symbols.readonly = ''
-"let g:airline_symbols.linenr = ''
+let g:airline#extensions#tabline#enabled = 1
 
 """"""""""""""""""""""""""vim-indent-guides插件
 " 随 vim 自启动
