@@ -202,7 +202,7 @@ Bundle 'dyng/ctrlsf.vim'
 "Bundle 'bufexplorer.zip'
 
 " python
-Bundle 'klen/python-mode'
+"Bundle 'klen/python-mode'
 Bundle 'pythoncomplete'
 
 " Scala
@@ -406,6 +406,7 @@ if executable('ag')
 endif
 
 """"""""""""""""""""""""""Ctrlsf插件
+let g:ctrlsf_ackprg = 'ag'
 let g:ctrlsf_default_root = 'project'
 let g:ctrlsf_mapping = {
     \ "next": "n",

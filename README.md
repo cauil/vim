@@ -39,6 +39,7 @@
 note: install [homebrew](http://brew.sh/), maybe some problems, look at [here](https://segmentfault.com/a/1190000003817086)
 
     $ brew install cmake
+    $ brew install the_silver_searcher
 
 4.Build [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#installation).
 
