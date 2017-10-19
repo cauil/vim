@@ -209,8 +209,6 @@ Bundle 'dyng/ctrlsf.vim'
 
 " python
 "Bundle 'klen/python-mode'
-Bundle 'yssource/python.vim'
-Bundle 'python_match.vim'
 Bundle 'pythoncomplete'
 
 " Scala
@@ -317,15 +315,15 @@ let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 let g:UltiSnipsEditSplit="vertical"
 
 """"""""""""""""""""""""""""color solarized
-colorscheme onedark
-let g:airline_theme='onedark'
-let g:onedark_termcolors=16
+"colorscheme onedark
+"let g:airline_theme='onedark'
+"let g:onedark_termcolors=16
 set background=dark
 "colorscheme solarized
 "colorscheme molokai
 "colorscheme monokai
 "colorscheme dracula
-"colorscheme desert
+colorscheme desert
 "colorscheme github
 "
 
@@ -414,6 +412,7 @@ if executable('ag')
 endif
 
 """"""""""""""""""""""""""Ctrlsf插件
+let g:ctrlsf_ackprg = 'ag'
 let g:ctrlsf_default_root = 'project'
 let g:ctrlsf_mapping = {
     \ "next": "n",
