@@ -91,7 +91,7 @@ set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set splitright  " Puts new vsplit windows to the right of the current
 set pastetoggle=<F12>   " pastetoggle (sane indentation on pastes)
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
-autocmd BufNewFile,BufRead *.ftl set filetype=html
+autocmd BufNewFile,BufRead *.ftl.shtml set filetype=html
 autocmd BufNewFile,BufRead *.rkt,*rktl set filetype=racket
 autocmd BufNewFile,BufRead *.asm set filetype=masm
 autocmd BufNewFile,BufRead *.css,*.scss,*.less set filetype=css
