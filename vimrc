@@ -245,6 +245,8 @@ syntax on
 
 ""F8显示或者关闭taglist串口
 "nnoremap <silent> <F8> :TlistToggle<CR>
+"""""""""""""""""""""""""""""vim-json插件
+let g:vim_json_syntax_conceal = 0     "disable syntax conceal
 
 """""""""""""""""""""""""""""ctags插件
 set tags+=~/.vim/cpptags
