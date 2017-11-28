@@ -203,6 +203,7 @@ Bundle 'terryma/vim-expand-region'
 Bundle 'tmhedberg/matchit'
 Bundle 'mileszs/ack.vim'
 Bundle 'dyng/ctrlsf.vim'
+Bundle 'xuhdev/SingleCompile'
 "Bundle 'tpope/vim-fugitive'
 "Bundle 'winmanager'
 "Bundle 'bufexplorer.zip'
@@ -510,29 +511,6 @@ let g:SignatureMap = {
 
 """"""""""""""""""""""3 编译并执行"""""""""""""""""""""""""""""""""""
 
-func! CompileGcc()
-    exec "w"
-    let compilecmd="!gcc"
-    let compileflag=" -o %<"
-    if search("mpi\.h")!=0
-        let compilecmd="!mpicc"
-    endif
-    if search("glut\.h")!=0
-        let compileflag.="-lglut -1GLU -1GL"
-    endif
-    if search("cv\.h")!=0
-        let compileflag.="-lcv -lhighgui -lcvaux"
-    endif
-    if search("omp\.h")!=0
-        let compileflag.="-fopenmp"
-    endif
-    if search("math\.h")!=0
-        let compileflag.="-lm"
-    endif
-
-    exec compilecmd." %".compileflag
-endfunc
-
 func! RunPython()
     exec "!python %"
 endfunc
@@ -540,7 +518,7 @@ endfunc
 func! CompileCode()
     exec "w"
     if &filetype == "c"
-        exec "call CompileGcc()"
+        exec "SCCompile"
     elseif &filetype == "python"
         exec "call RunPython()"
     endif
@@ -551,7 +529,7 @@ func! RunResult()
     if search("mpi\.h") != 0
         exec "!mpirun -np 4 ./%<"
     elseif &filetype=="c"
-        exec "! ./%<"
+        exec "SCCompileRun"
     elseif &filetype=="python"
         exec "call RunPython()"
     endif
