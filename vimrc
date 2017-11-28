@@ -40,7 +40,7 @@ endif
 set tabpagemax=15   " Only show 15 tabs
 set showmode " Display the current mode
 
-set cursorline  " Highlight current line
+"set cursorline  " Highlight current line
 set cursorcolumn
 
 highlight clear SignColumn  " SignColumn should match background
@@ -321,11 +321,11 @@ let g:UltiSnipsEditSplit="vertical"
 "let g:airline_theme='onedark'
 "let g:onedark_termcolors=16
 set background=dark
-colorscheme solarized
+"colorscheme solarized
 "colorscheme molokai
 "colorscheme monokai
 "colorscheme dracula
-"colorscheme desert
+colorscheme desert
 "colorscheme github
 "
 
@@ -513,7 +513,7 @@ let g:SignatureMap = {
 func! CompileGcc()
     exec "w"
     let compilecmd="!gcc"
-    let compileflag="-o %<"
+    let compileflag=" -o %<"
     if search("mpi\.h")!=0
         let compilecmd="!mpicc"
     endif
@@ -530,7 +530,7 @@ func! CompileGcc()
         let compileflag.="-lm"
     endif
 
-    exec compilecmd."%".compileflag
+    exec compilecmd." %".compileflag
 endfunc
 
 func! RunPython()
