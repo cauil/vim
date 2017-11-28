@@ -203,7 +203,6 @@ Bundle 'terryma/vim-expand-region'
 Bundle 'tmhedberg/matchit'
 Bundle 'mileszs/ack.vim'
 Bundle 'dyng/ctrlsf.vim'
-Bundle 'xuhdev/SingleCompile'
 "Bundle 'tpope/vim-fugitive'
 "Bundle 'winmanager'
 "Bundle 'bufexplorer.zip'
@@ -518,7 +517,8 @@ endfunc
 func! CompileCode()
     exec "w"
     if &filetype == "c"
-        exec "SCCompile"
+        "exec "SCCompile"
+        exec "!gcc -Wall % -o %<"
     elseif &filetype == "python"
         exec "call RunPython()"
     endif
@@ -529,7 +529,7 @@ func! RunResult()
     if search("mpi\.h") != 0
         exec "!mpirun -np 4 ./%<"
     elseif &filetype=="c"
-        exec "SCCompileRun"
+        exec "!gcc -Wall % -o %<;./%<"
     elseif &filetype=="python"
         exec "call RunPython()"
     endif
