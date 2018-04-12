@@ -5,6 +5,29 @@ canvas.width = WINDOW_WIDTH;
 canvas.height = WINDOW_HEIGHT;
 endsnippet
 
+snippet react
+import React, {Component} from 'react';
+
+class ${1:ClassName} extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  componentDidMount() {
+  }
+
+  componentWillReceiveProps() {
+  }
+
+  render() {
+  }
+}
+
+export default ${1:ClassName};
+endsnippet
+
+
 snippet rncon
 import React, {Component} from 'react';
 import {
