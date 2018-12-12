@@ -95,7 +95,9 @@ autocmd BufNewFile,BufRead *.ftl.shtml set filetype=html
 autocmd BufNewFile,BufRead *.vue set filetype=html
 autocmd BufNewFile,BufRead *.rkt,*rktl set filetype=racket
 autocmd BufNewFile,BufRead *.asm set filetype=masm
+autocmd BufNewFile,BufRead *.j set filetype=jass
 autocmd BufNewFile,BufRead *.css,*.scss,*.less set filetype=css
+autocmd BufNewFile,BufRead *.go set filetype=go
 autocmd FileType haskell,puppet,ruby,yml,javascript,css,html setlocal expandtab shiftwidth=2 softtabstop=2
 au filetype racket set lisp
 " preceding line best in a plugin but here for now.
@@ -235,14 +237,57 @@ Bundle 'docunext/closetag.vim'
 "Bundle 'gorodinskiy/vim-coloresque'
 "Bundle 'tpope/vim-haml'
 
+" go
+Bundle 'fatih/vim-go'
+Bundle 'AndrewRadev/splitjoin.vim'
+
 " Markdown
 Bundle 'suan/vim-instant-markdown'
+
+" jass
+Bundle 'gu-fan/jass.vim'
 
 filetype plugin indent on     " required! 
 syntax on
 
+" vim-go设置
 
-"let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+set autowrite
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <leader>n :cnext<CR>
+autocmd FileType go nmap <leader>m :cprevious<CR>
+autocmd FileType go nmap <leader>a :cclose<CR>
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <Leader>l :GoMetaLinter<CR>
+autocmd FileType go nmap <Leader>i <Plug>(go-info)
+autocmd BufNewFile,BufRead *.go setlocal expandtab tabstop=4 shiftwidth=4
+let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_build_constraints = 1
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+"let g:go_metalinter_autosave = 1
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+let g:go_decls_includes = "func,type"
+"let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
 
 ""F8显示或者关闭taglist串口
 "nnoremap <silent> <F8> :TlistToggle<CR>
@@ -323,6 +368,8 @@ let g:UltiSnipsEditSplit="vertical"
 "let g:onedark_termcolors=16
 set background=dark
 "colorscheme solarized
+"let g:rehash256 = 1
+"let g:molokai_original = 1
 "colorscheme molokai
 "colorscheme monokai
 "colorscheme dracula
