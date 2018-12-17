@@ -96,7 +96,7 @@ autocmd BufNewFile,BufRead *.vue set filetype=html
 autocmd BufNewFile,BufRead *.rkt,*rktl set filetype=racket
 autocmd BufNewFile,BufRead *.asm set filetype=masm
 autocmd BufNewFile,BufRead *.css,*.scss,*.less set filetype=css
-autocmd BufNewFile,BufRead *.js,*.jsx set filetype=javascript
+autocmd BufNewFile,BufRead *.js,*.jsx,*.mpx,*.json set filetype=javascript
 autocmd FileType haskell,puppet,ruby,yml,javascript,css,html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au filetype racket set lisp
 " preceding line best in a plugin but here for now.
@@ -228,6 +228,7 @@ Bundle 'isRuslan/vim-es6'
 Bundle 'posva/vim-vue'
 "Bundle 'ternjs/tern_for_vim'
 "Bundle 'kchmck/vim-coffee-script'
+Bundle 'leafgarland/typescript-vim'
 
 " Html
 Bundle 'docunext/closetag.vim'
