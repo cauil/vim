@@ -231,6 +231,7 @@ Bundle 'posva/vim-vue'
 "Bundle 'ternjs/tern_for_vim'
 "Bundle 'kchmck/vim-coffee-script'
 Bundle 'leafgarland/typescript-vim'
+Bundle 'HerringtonDarkholme/yats.vim'
 
 " Html
 Bundle 'docunext/closetag.vim'
@@ -589,3 +590,10 @@ map <F5> :call CompileCode()<CR>
 imap <F5> :call CompileCode()<CR>
 vmap <F5> :call CompileCode()<CR>
 map <F6> :call RunResult()<CR>
+
+" make vim fast
+" force the old regex engine on any version newer
+set re=1
+" make fast scoll and draw
+set ttyfast
+set lazyredraw
