@@ -27,11 +27,11 @@
     $ git clone git@github.com:cauil/vim.git ~/.vim
 
 2.Install
-
+    $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     $ cd ~/.vim
-    $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    $ vim (:PlugInstall)
     $ ln -s vimrc ~/.vimrc && ln -s tern-project ~/.tern-project
-    $ vim +BundleInstall +qall
     $ npm install -g eslint jshint instant-markdown-d
 
 3.install [homebrew](http://brew.sh/)
@@ -46,7 +46,7 @@ note: install [homebrew](http://brew.sh/), maybe some problems, look at [here](h
 note: 
 
     $ cd ~/.vim/bundle/YouCompleteMe
-    $ ./install.py --tern-completer --clang-completer
+    $ python3 install.py --clangd-completer --ts-completer --tern-completer
 
 ### Manage Plugin
 
@@ -54,16 +54,16 @@ in vim command model
 
 1. update
 
-    `:BundleUpdate`
+    `:PlugUpdate`
 2. clean the plugin not used more
 
-    `:BundleClean`
+    `:PlugClean`
 3. list all plugins
 
-    `:BundleList`
+    `:PlugList`
 4. find plugin
 
-    `:BundleSearch`
+    `:PlugSearch`
 
 ## 2. ITREM + ZSH
 

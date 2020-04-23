@@ -92,13 +92,13 @@ set splitright  " Puts new vsplit windows to the right of the current
 set pastetoggle=<F12>   " pastetoggle (sane indentation on pastes)
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 autocmd BufNewFile,BufRead *.ftl.shtml set filetype=html
-autocmd BufNewFile,BufRead *.vue set filetype=html
 autocmd BufNewFile,BufRead *.rkt,*rktl set filetype=racket
 autocmd BufNewFile,BufRead *.asm set filetype=masm
 autocmd BufNewFile,BufRead *.j set filetype=jass
 autocmd BufNewFile,BufRead *.css,*.scss,*.less set filetype=css
 autocmd BufNewFile,BufRead *.go set filetype=go
 autocmd BufNewFile,BufRead *.js,*.jsx set filetype=javascript
+autocmd BufNewFile,BufRead *.vue setlocal filetype=vue.html.javascript.css
 autocmd FileType haskell,puppet,ruby,yml,javascript,css,html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au filetype racket set lisp
 " preceding line best in a plugin but here for now.
@@ -166,87 +166,93 @@ set termencoding=utf-8
 " 然后在vundle插件配置完毕之后加上: (见194/195行) 1.filetype plugin indent on 2.syntax on
 filetype off           " required! 
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" set rtp+=~/.vim/bundle/vundle/
+" call vundle#rc()
 
 " let Vundle manage Vundle 
 " " required!
 " 这是Vundle本身的设置
-Bundle 'gmarik/vundle'
+" Bundle 'gmarik/vundle'
+"
+" plug manage
+call plug#begin('~/.vim/bundle')
 
 " 这是我的插件设置
 " original repos on github
 
 " General
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'sickill/vim-monokai'
-Bundle 'w0ng/vim-hybrid'
-Bundle 'joshdick/onedark.vim'
-Bundle 'dracula/vim'
-Bundle 'tomasr/molokai'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/syntastic'
-Bundle 'Raimondi/delimitMate'
-Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'taglist.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'kshenoy/vim-signature'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'Sirver/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'terryma/vim-expand-region'
-Bundle 'tmhedberg/matchit'
-Bundle 'mileszs/ack.vim'
-Bundle 'dyng/ctrlsf.vim'
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'winmanager'
-"Bundle 'bufexplorer.zip'
+Plug 'Valloric/YouCompleteMe'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'altercation/vim-colors-solarized'
+Plug 'sickill/vim-monokai'
+Plug 'w0ng/vim-hybrid'
+Plug 'joshdick/onedark.vim'
+Plug 'dracula/vim'
+Plug 'tomasr/molokai'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
+Plug 'Raimondi/delimitMate'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'jistr/vim-nerdtree-tabs'
+" Plug 'taglist.vim'
+Plug 'majutsushi/tagbar'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'kshenoy/vim-signature'
+Plug 'airblade/vim-gitgutter'
+Plug 'Sirver/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'terryma/vim-expand-region'
+Plug 'tmhedberg/matchit'
+Plug 'mileszs/ack.vim'
+Plug 'dyng/ctrlsf.vim'
+"Plug 'tpope/vim-fugitive'
+"Plug 'winmanager'
+"Plug 'bufexplorer.zip'
 
 " python
-"Bundle 'klen/python-mode'
-Bundle 'pythoncomplete'
+" Plug 'klen/python-mode'
+" Plug 'pythoncomplete'
 
 " Scala
-"Bundle 'derekwyatt/vim-scala'
-"Bundle 'derekwyatt/vim-sbt'
-"Bundle 'xptemplate'
+"Plug 'derekwyatt/vim-scala'
+"Plug 'derekwyatt/vim-sbt'
+"Plug 'xptemplate'
 
 " Javascript
-Bundle 'elzr/vim-json'
-Bundle 'groenewege/vim-less'
-Bundle 'pangloss/vim-javascript'
-"Bundle 'briancollins/vim-jst'
-Bundle 'mxw/vim-jsx'
-Bundle 'isRuslan/vim-es6'
-Bundle 'posva/vim-vue'
-"Bundle 'ternjs/tern_for_vim'
-"Bundle 'kchmck/vim-coffee-script'
+Plug 'elzr/vim-json'
+Plug 'groenewege/vim-less'
+Plug 'pangloss/vim-javascript'
+"Plug 'briancollins/vim-jst'
+Plug 'mxw/vim-jsx'
+Plug 'isRuslan/vim-es6'
+Plug 'posva/vim-vue'
+Plug 'ternjs/tern_for_vim'
+"Plug 'kchmck/vim-coffee-script'
 
 " Html
-Bundle 'docunext/closetag.vim'
-"Bundle 'hail2u/vim-css3-syntax'
-"Bundle 'amirh/HTML-AutoCloseTag'
-"Bundle 'gorodinskiy/vim-coloresque'
-"Bundle 'tpope/vim-haml'
+Plug 'docunext/closetag.vim'
+"Plug 'hail2u/vim-css3-syntax'
+"Plug 'amirh/HTML-AutoCloseTag'
+"Plug 'gorodinskiy/vim-coloresque'
+"Plug 'tpope/vim-haml'
 
 " go
-Bundle 'fatih/vim-go'
-Bundle 'AndrewRadev/splitjoin.vim'
+Plug 'fatih/vim-go'
+Plug 'AndrewRadev/splitjoin.vim'
 
 " Markdown
-Bundle 'suan/vim-instant-markdown'
+Plug 'suan/vim-instant-markdown'
 
 " jass
-Bundle 'gu-fan/jass.vim'
+Plug 'gu-fan/jass.vim'
+
+call plug#end()
 
 filetype plugin indent on     " required! 
 syntax on
@@ -337,9 +343,9 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_python_binary_path = 'python'
 
-set completeopt-=preview "no preview window
- "let g:ycm_autoclose_preview_window_after_completion = 1
- "let g:ycm_autoclose_preview_window_after_insertion = 1
+" set completeopt-=preview "no preview window
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " 跳转到定义处, 分屏打开
 "let g:ycm_goto_buffer_command = 'horizontal-split'
@@ -483,6 +489,7 @@ vmap     <C-F>l <Plug>CtrlSFQuickfixVwordPath
 vmap     <C-F>L <Plug>CtrlSFQuickfixVwordExec
 
 """"""""""""""""""""""""""NERD_Commenter插件
+let g:NERDSpaceDelims = 1
 
 """"""""""""""""""""""""""NERDtree插件
 "map a specific key or shortcut to open NERDTree
