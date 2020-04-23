@@ -1,4 +1,5 @@
 *.swp
+autoload/
 bundle/
 bundle/taglist.vim/
 bundle/vim-expand-region
