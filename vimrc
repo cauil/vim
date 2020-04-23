@@ -96,8 +96,8 @@ autocmd BufNewFile,BufRead *.rkt,*rktl set filetype=racket
 autocmd BufNewFile,BufRead *.asm set filetype=masm
 autocmd BufNewFile,BufRead *.j set filetype=jass
 autocmd BufNewFile,BufRead *.css,*.scss,*.less set filetype=css
+autocmd BufNewFile,BufRead *.js,*.jsx,*.mpx,*.json set filetype=javascript
 autocmd BufNewFile,BufRead *.go set filetype=go
-autocmd BufNewFile,BufRead *.js,*.jsx set filetype=javascript
 autocmd BufNewFile,BufRead *.vue setlocal filetype=vue.html.javascript.css
 autocmd FileType haskell,puppet,ruby,yml,javascript,css,html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au filetype racket set lisp
@@ -234,6 +234,8 @@ Plug 'isRuslan/vim-es6'
 Plug 'posva/vim-vue'
 Plug 'ternjs/tern_for_vim'
 "Plug 'kchmck/vim-coffee-script'
+Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 
 " Html
 Plug 'docunext/closetag.vim'
@@ -595,3 +597,10 @@ map <F5> :call CompileCode()<CR>
 imap <F5> :call CompileCode()<CR>
 vmap <F5> :call CompileCode()<CR>
 map <F6> :call RunResult()<CR>
+
+" make vim fast
+" force the old regex engine on any version newer
+set re=1
+" make fast scoll and draw
+set ttyfast
+set lazyredraw
