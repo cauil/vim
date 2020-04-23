@@ -9,7 +9,7 @@
     "path/to/your/js/**/*.js"
   ],
   "loadEagerly": [
-    "node_modules/**"
+    ""
   ],
   "plugins": {
     "requirejs": {
