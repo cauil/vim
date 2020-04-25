@@ -1,8 +1,8 @@
 {
-  "ecmaVersion": 8,
   "libs": [
     "browser",
     "jquery",
+    "ecmascript",
     "react"
   ],
   "dontLoad": [

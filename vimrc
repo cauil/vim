@@ -7,6 +7,7 @@ set nocompatible" Must be first line
 
 """""""""""""""General
 filetype plugin indent on   " Automatically detect file types.
+set omnifunc=syntaxcomplete#Complete
 syntax on   " Syntax highlighting
 set mouse=a " Automatically enable mouse usage
 set mousehide   " Hide the mouse cursor while typing
@@ -164,7 +165,6 @@ set termencoding=utf-8
 
 " 此处必须先off vundle会影响UltiSnips插件加载对应文件类型的(如html.snippets)
 " 然后在vundle插件配置完毕之后加上: (见194/195行) 1.filetype plugin indent on 2.syntax on
-filetype off           " required! 
 
 " set rtp+=~/.vim/bundle/vundle/
 " call vundle#rc()
@@ -183,6 +183,7 @@ call plug#begin('~/.vim/bundle')
 " General
 Plug 'Valloric/YouCompleteMe'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'sheerun/vim-polyglot'
 Plug 'altercation/vim-colors-solarized'
 Plug 'sickill/vim-monokai'
 Plug 'w0ng/vim-hybrid'
@@ -256,7 +257,6 @@ Plug 'gu-fan/jass.vim'
 
 call plug#end()
 
-filetype plugin indent on     " required! 
 syntax on
 
 " vim-go设置
@@ -319,6 +319,31 @@ map <leader><leader>h <Plug>(easymotion-linebackward)
 map <leader><leader>j <Plug>(easymotion-j)
 map <leader><leader>k <Plug>(easymotion-k)
 map <leader><leader>l <Plug>(easymotion-lineforward)
+
+""""""""""""""""""""""""""""coc插件
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 """"""""""""""""""""""""""""YouCompleteMe插件
 "自动补全
