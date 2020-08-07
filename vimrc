@@ -100,7 +100,7 @@ autocmd BufNewFile,BufRead *.css,*.scss,*.less set filetype=css
 autocmd BufNewFile,BufRead *.js,*.jsx,*.mpx,*.json set filetype=javascript
 autocmd BufNewFile,BufRead *.go set filetype=go
 autocmd BufNewFile,BufRead *.vue setlocal filetype=vue.html.javascript.css
-autocmd FileType haskell,puppet,ruby,yml,javascript,css,html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType haskell,puppet,ruby,yml,javascript,typescript,css,html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au filetype racket set lisp
 " preceding line best in a plugin but here for now.
 
@@ -233,10 +233,11 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'isRuslan/vim-es6'
 Plug 'posva/vim-vue'
-Plug 'ternjs/tern_for_vim'
+" Plug 'ternjs/tern_for_vim'
 "Plug 'kchmck/vim-coffee-script'
 Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'Quramy/tsuquyomi'
 
 " Html
 Plug 'docunext/closetag.vim'
@@ -427,6 +428,8 @@ let g:syntastic_check_on_wq = 0
 " 设置js 和 html的检查项目，jslint jshint需要自己安装, 或者使用eslint
 "let g:syntastic_javascript_checkers = ['jsl', 'jshint']
 let g:syntastic_javascript_checkers = ['eslint']
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
 "let g:syntastic_javascript_eslint_exec = 'eslint_d'
 "let g:syntastic_javascript_eslint_exec = 'eslint'
 let g:syntastic_html_checkers=['tidy', 'eslint']
