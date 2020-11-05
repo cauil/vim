@@ -42,7 +42,7 @@ set tabpagemax=15   " Only show 15 tabs
 set showmode " Display the current mode
 
 "set cursorline  " Highlight current line
-set cursorcolumn
+" set cursorcolumn
 
 highlight clear SignColumn  " SignColumn should match background
 highlight clear LineNr  " Current line number row will have same background color in relative mode
@@ -100,7 +100,7 @@ autocmd BufNewFile,BufRead *.css,*.scss,*.less set filetype=css
 autocmd BufNewFile,BufRead *.js,*.jsx,*.mpx,*.json set filetype=javascript
 autocmd BufNewFile,BufRead *.go set filetype=go
 autocmd BufNewFile,BufRead *.vue setlocal filetype=vue.html.javascript.css
-autocmd FileType haskell,puppet,ruby,yml,javascript,typescript,css,html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType haskell,puppet,ruby,yml,javascript,typescript,css,html setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 au filetype racket set lisp
 " preceding line best in a plugin but here for now.
 
@@ -627,9 +627,6 @@ imap <F5> :call CompileCode()<CR>
 vmap <F5> :call CompileCode()<CR>
 map <F6> :call RunResult()<CR>
 
-" make vim fast
-" force the old regex engine on any version newer
-set re=1
 " make fast scoll and draw
 set ttyfast
 set lazyredraw
