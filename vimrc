@@ -47,11 +47,11 @@ set showmode " Display the current mode
 highlight clear SignColumn  " SignColumn should match background
 highlight clear LineNr  " Current line number row will have same background color in relative mode
 
-"if has('cmdline_info')
-"   set ruler   " Show the ruler
-"   set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
-"   set showcmd " Show partial commands in status line and
-"endif
+" if has('cmdline_info')
+  " set ruler   " Show the ruler
+  " set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
+  set showcmd " Show partial commands in status line and
+" endif
 
 if has('statusline')
    set laststatus=2
@@ -97,14 +97,11 @@ autocmd BufNewFile,BufRead *.rkt,*rktl set filetype=racket
 autocmd BufNewFile,BufRead *.asm set filetype=masm
 autocmd BufNewFile,BufRead *.j set filetype=jass
 autocmd BufNewFile,BufRead *.css,*.scss,*.less set filetype=css
-autocmd BufNewFile,BufRead *.js,*.jsx,*.mpx,*.json set filetype=javascript
 autocmd BufNewFile,BufRead *.go set filetype=go
 autocmd BufNewFile,BufRead *.vue setlocal filetype=vue.html.javascript.css
-autocmd FileType haskell,puppet,ruby,yml,javascript,typescript,css,html setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType haskell,puppet,ruby,yml,javascript,typescript,css,html,jsx setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 au filetype racket set lisp
 " preceding line best in a plugin but here for now.
-
-autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 
 " Workaround vim-commentary for Haskell
 autocmd FileType haskell setlocal commentstring=--\ %s
@@ -183,7 +180,7 @@ call plug#begin('~/.vim/bundle')
 " General
 Plug 'Valloric/YouCompleteMe'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'altercation/vim-colors-solarized'
 Plug 'sickill/vim-monokai'
 Plug 'w0ng/vim-hybrid'
@@ -235,7 +232,6 @@ Plug 'mxw/vim-jsx'
 Plug 'isRuslan/vim-es6'
 Plug 'posva/vim-vue'
 " Plug 'ternjs/tern_for_vim'
-"Plug 'kchmck/vim-coffee-script'
 Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'Quramy/tsuquyomi'
@@ -260,6 +256,7 @@ Plug 'gu-fan/jass.vim'
 call plug#end()
 
 syntax on
+
 
 " vim-go设置
 
