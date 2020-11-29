@@ -222,6 +222,9 @@ Plug 'dyng/ctrlsf.vim'
 "Plug 'derekwyatt/vim-scala'
 "Plug 'derekwyatt/vim-sbt'
 "Plug 'xptemplate'
+"
+" ML
+Plug 'javier-lopez/sml.vim'
 
 " Javascript
 Plug 'elzr/vim-json'
