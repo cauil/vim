@@ -230,13 +230,14 @@ Plug 'javier-lopez/sml.vim'
 Plug 'elzr/vim-json'
 Plug 'groenewege/vim-less'
 Plug 'pangloss/vim-javascript'
-"Plug 'briancollins/vim-jst'
-Plug 'mxw/vim-jsx'
+" Plug 'briancollins/vim-jst'
+" Plug 'mxw/vim-jsx'
 Plug 'isRuslan/vim-es6'
 Plug 'posva/vim-vue'
 " Plug 'ternjs/tern_for_vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'Quramy/tsuquyomi'
 
 " Html
@@ -540,8 +541,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let g:NERDTreeMapOpenSplit = 's'
 let g:NERDTreeMapOpenVSplit = 'v'
 
-""""""""""""""""""""""""""vim-jsx插件
-let g:jsx_ext_required = 0
+""""""""""""""""""""""""""vim-jsx-pretty插件
+let g:vim_jsx_pretty_colorful_config = 1 " default 0
 
 """"""""""""""""""""""""""delimitMate插件
 "for python docstring,优化输入
