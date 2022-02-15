@@ -179,7 +179,7 @@ call plug#begin('~/.vim/bundle')
 
 " General
 Plug 'Valloric/YouCompleteMe'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'sheerun/vim-polyglot'
 Plug 'altercation/vim-colors-solarized'
 Plug 'sickill/vim-monokai'
@@ -225,6 +225,9 @@ Plug 'dyng/ctrlsf.vim'
 "
 " ML
 Plug 'javier-lopez/sml.vim'
+
+" rust
+Plug 'rust-lang/rust.vim'
 
 " Javascript
 Plug 'elzr/vim-json'
@@ -324,17 +327,18 @@ map <leader><leader>l <Plug>(easymotion-lineforward)
 
 """"""""""""""""""""""""""""coc插件
 " Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
+" autocmd FileType css,javascript,typescript,js,ts,html :call coc#config("suggest.autoTrigger", "none")
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -345,7 +349,7 @@ function! s:show_documentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 """"""""""""""""""""""""""""YouCompleteMe插件
 "自动补全
@@ -424,7 +428,7 @@ set statusline+=%*
 
 let g:syntastic_error_symbol='>>'
 let g:syntastic_warning_symbol='>'
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 " 设置js 和 html的检查项目，jslint jshint需要自己安装, 或者使用eslint
 "let g:syntastic_javascript_checkers = ['jsl', 'jshint']
@@ -455,7 +459,7 @@ function! ToggleErrors()
 endfunction
 " 设置打开提示窗口快捷键
 nnoremap <Leader>s :call ToggleErrors()<cr>
-"nnoremap <Leader>sc :SyntasticCheck<cr>
+nnoremap <Leader>sc :SyntasticCheck<cr>
 
 """"""""""""""""""""""""""CtrlP插件
 let g:ctrlp_map = "<c-p>"
@@ -630,3 +634,6 @@ map <F6> :call RunResult()<CR>
 " make fast scoll and draw
 set ttyfast
 set lazyredraw
+if filereadable("./.local.vim")
+    source ./.local.vim
+endif
